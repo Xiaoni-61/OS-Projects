@@ -13,21 +13,24 @@ int main() {
 	if (pid == -1) {
 		perror("Failed in calling fork");
 		exit(1);
-	} else if (pid == 0) {
-	/* the child process */
-	printf("In child process, PID = %d, PPID = %d. ", getpid(), getppid());
-	printf("\n");
-	// ----- A -----
-	// ----- B -----
-	//exit(0);
-	} else {
-	/* the parent process */
-	printf("In parent process, child's PID = %d. ", pid);
-	printf("\n");
-	printf("In parent process, PID = %d, PPID = %d. ", getpid(), getppid());
-	printf("\n");
-	// ----- C -----
-	wait(NULL);
+	} 
+	else if (pid == 0) {
+		/* the child process */
+		printf("In child process, PID = %d, PPID = %d. ", getpid(), getppid());
+		printf("\n");
+		// ----- A -----
+		//sleep(3);
+		// ----- B -----
+		exit(0);
+	}
+	else {
+		/* the parent process */
+		printf("In parent process, child's PID = %d. ", pid);
+		printf("\n");
+		printf("In parent process, PID = %d, PPID = %d. ", getpid(), getppid());
+		printf("\n");
+		// ----- C -----
+		wait(NULL);
 	}
 	printf("Before return in main(), PID = %d, PPID = %d. ", getpid(), getppid());
 	printf("\n");

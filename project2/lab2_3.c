@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <errno.h>
+#include <sys/wait.h>
 
 int main(){
 	
@@ -19,6 +20,7 @@ int main(){
  	}
 	else if(result1==0){
 		printf("Child 1\n");
+		exit(1);
 	}
 	else{
 		printf("Parents\n");
@@ -31,12 +33,13 @@ int main(){
 	                printf("Child 2\n");
         	}
 		else{
+			
 			exit(1);
 		}
-
+	
 
 	}
-
+	return (EXIT_SUCCESS);
 
 
 
